@@ -3,14 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { AngularGlobaliteService } from './angular-globalite.service';
 
 describe('AngularGlobaliteService', () => {
-  let service: AngularGlobaliteService;
+	let service: AngularGlobaliteService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AngularGlobaliteService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(AngularGlobaliteService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });
