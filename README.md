@@ -1,59 +1,24 @@
-# AngularGlobalite
+# angular-globalite
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+This library provides [Angular](https://angular.dev/) pipes for formatting and parsing numbers, dates, and booleans using the [@code-art-eg/globalite](https://github.com/code-art-eg/globalite) library.
+This is a rewrite of the [@code-art-eg/angular-globalize](https://github.com/code-art-eg/angular-globalize) library that used the [Globalize](https://github.com/globalizejs/globalize) library.
 
-## Development server
 
-To start a local development server, run:
+## Installation
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+You can install this library via npm:
 
 ```bash
-ng generate component component-name
+npm install @code-art-eg/angular-globalite
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+or via yarn:
 
 ```bash
-ng generate --help
+yarn add @code-art-eg/angular-globalite
 ```
 
-## Building
+## Versioning scheme
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The library major version follows the major version of Angular it is compatible with. For example, version 19.x.x is compatible with Angular 19.x.x.
+Since the first version was created for Angular 19, the lowest major version is 19.
