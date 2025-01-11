@@ -1100,6 +1100,13 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
+"@code-art-eg/angular-bootstrap@^19.0.1":
+  version "19.0.1"
+  resolved "https://registry.yarnpkg.com/@code-art-eg/angular-bootstrap/-/angular-bootstrap-19.0.1.tgz#0f606642fe6591d61898feb6e45cfd9a4c111064"
+  integrity sha512-BVuZjM4eS5ta/qEhpRob4AbeYaVzxWS17lHRt7sQvORau618zeAW/cjYAMHn9cAkHLqgFyohM/XQpMCkSR/3sw==
+  dependencies:
+    tslib "^2.3.0"
+
 "@code-art-eg/globalite@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@code-art-eg/globalite/-/globalite-0.4.0.tgz#069245dc2894a1248153be0484a4cd8c6d0013f5"
