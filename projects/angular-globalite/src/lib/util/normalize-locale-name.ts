@@ -1,3 +1,5 @@
+const localeNameRegex = /^[A-Za-z]{2}(-[A-Za-z][a-z]{2-6})?(-[a-zA-Z]{2})?$/;
+
 /**
  * Normalizes a locale name by trimming, replacing underscores with hyphens,
  * and formatting each part of the locale string appropriately.
@@ -10,6 +12,13 @@ export function normalizeLocaleName(locale: string): string {
 		throw new Error('Invalid locale name');
 	}
 	locale = locale.trim().replace('_', '-');
+	if (locale.length === 0) {
+		throw new Error('Invalid locale name');
+	}
+
+	if (!localeNameRegex.test(locale)) {
+		throw new Error('Invalid locale name');
+	}
 	const split = locale.split('-');
 	if (split.length > 3) {
 		throw new Error('Invalid locale name');

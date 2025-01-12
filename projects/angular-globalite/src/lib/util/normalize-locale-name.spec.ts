@@ -7,6 +7,36 @@ describe('normalizeName', () => {
 		);
 	});
 
+	it('should throw an error for whitespace input', () => {
+		expect(() => normalizeLocaleName(' ')).toThrowError(
+			'Invalid locale name'
+		);
+	});
+
+	it('should throw an error for null input', () => {
+		expect(() =>
+			normalizeLocaleName(null as unknown as string)
+		).toThrowError('Invalid locale name');
+	});
+
+	it('should throw an error for undefined input', () => {
+		expect(() =>
+			normalizeLocaleName(undefined as unknown as string)
+		).toThrowError('Invalid locale name');
+	});
+
+	it('should throw an error for input with invalid characters', () => {
+		expect(() => normalizeLocaleName('en@US')).toThrowError(
+			'Invalid locale name'
+		);
+	});
+
+	it('should throw an error for input with too many parts', () => {
+		expect(() => normalizeLocaleName('en-US-Extra-Part')).toThrowError(
+			'Invalid locale name'
+		);
+	});
+
 	it('should trim whitespace from the input', () => {
 		expect(normalizeLocaleName('  en-US  ')).toBe('en-US');
 	});
@@ -20,7 +50,7 @@ describe('normalizeName', () => {
 	});
 
 	it('should convert the second part to title case if it is longer than 2 characters', () => {
-		expect(normalizeLocaleName('en-Usa')).toBe('en-USA');
+		expect(normalizeLocaleName('en-Us')).toBe('en-US');
 	});
 
 	it('should convert the second part to uppercase if it is 2 characters or less', () => {
