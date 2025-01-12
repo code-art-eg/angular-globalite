@@ -6,7 +6,7 @@ describe('readCookie', () => {
 	beforeEach(() => {
 		mockDocument = {
 			cookie: 'testName=testValue; anotherName=anotherValue',
-		} as any;
+		} as unknown as Document;
 	});
 
 	it('should return the value of the specified cookie', () => {
