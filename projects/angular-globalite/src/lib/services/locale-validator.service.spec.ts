@@ -36,6 +36,10 @@ describe('LocaleValidatorService', () => {
 		expect(service.getSupportedLocale('en')).toBe('en-US');
 	});
 
+	it('should return the a culture with the same parent locale if the exact match is not found', () => {
+		expect(service.getSupportedLocale('en-GB')).toBe('en-US');
+	});
+
 	it('should return the parent locale if the given locale is a child', () => {
 		expect(service.getSupportedLocale('ar-EG')).toBe('ar-Arabic-EG');
 	});

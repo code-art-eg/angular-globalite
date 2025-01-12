@@ -52,6 +52,11 @@ export class LocaleValidatorService {
 				sameParentLocale(locale, v)
 			);
 		}
+
+		if (index >= 0) {
+			return this.supportedLocales[index];
+		}
+
 		return null;
 	}
 
