@@ -55,4 +55,12 @@ describe('LocaleValidatorService', () => {
 	it('should return default locale', () => {
 		expect(service.getDefaultLocale()).toBe('en-US');
 	});
+
+	it('should return the supported locales', () => {
+		expect(service.getSupportedLocales()).toEqual([
+			'en-US',
+			'de-DE',
+			'ar-Arabic-EG',
+		]);
+	});
 });

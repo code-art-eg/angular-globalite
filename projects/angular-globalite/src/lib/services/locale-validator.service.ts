@@ -12,20 +12,23 @@ import { sameParentLocale } from '../util/same-parent-locale';
 	providedIn: 'root',
 })
 export class LocaleValidatorService {
+	readonly #supportedLocales: readonly string[];
 	/**
 	 * Constructs a new instance of LocaleValidatorService.
 	 * @throws {Error} If the supportedLocales array is empty.
 	 */
 	constructor(
 		@Inject(SUPPORTED_LOCALES_TOKEN)
-		private readonly supportedLocales: string[]
+		supportedLocales: string[]
 	) {
-		if (this.supportedLocales.length === 0) {
+		if (supportedLocales.length === 0) {
 			throw new Error(
 				'Parameter supportedLocales passed to LocaleValidatorService constructor cannot be empty.'
 			);
 		}
-		this.supportedLocales = this.supportedLocales.map(normalizeLocaleName);
+		this.#supportedLocales = Object.freeze(
+			Array.from(new Set(supportedLocales.map(normalizeLocaleName)))
+		);
 	}
 
 	/**
@@ -36,31 +39,35 @@ export class LocaleValidatorService {
 	 */
 	getSupportedLocale(locale: string): string | null {
 		locale = normalizeLocaleName(locale);
-		let index = this.supportedLocales.findIndex(v => v === locale);
+		let index = this.#supportedLocales.findIndex(v => v === locale);
 		if (index < 0) {
-			index = this.supportedLocales.findIndex(v =>
+			index = this.#supportedLocales.findIndex(v =>
 				isParentLocale(v, locale)
 			);
 		}
 		if (index < 0) {
-			index = this.supportedLocales.findIndex(v =>
+			index = this.#supportedLocales.findIndex(v =>
 				isParentLocale(locale, v)
 			);
 		}
 		if (index < 0) {
-			index = this.supportedLocales.findIndex(v =>
+			index = this.#supportedLocales.findIndex(v =>
 				sameParentLocale(locale, v)
 			);
 		}
 
 		if (index >= 0) {
-			return this.supportedLocales[index];
+			return this.#supportedLocales[index];
 		}
 
 		return null;
 	}
 
 	getDefaultLocale(): string {
-		return this.supportedLocales[0];
+		return this.#supportedLocales[0];
+	}
+
+	getSupportedLocales(): readonly string[] {
+		return this.#supportedLocales;
 	}
 }
