@@ -1,5 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+// noinspection ES6PreferShortImport
 import { CookieLocaleProviderService } from './cookie-locale-provider.service';
+import { TestBed } from '@angular/core/testing';
 import { COOKIE_LOCALE_CONFIG_TOKEN } from '../constants';
 import { DOCUMENT } from '@angular/common';
 import { CookieLocaleConfig } from '../types';

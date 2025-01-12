@@ -1,10 +1,12 @@
-import { inject, InjectionToken } from '@angular/core';
-import { StorageLocaleProviderService } from './services/storage-locale-provider.service';
-import {
+// noinspection ES6PreferShortImport
+
+import type {
 	CookieLocaleConfig,
 	LocaleProvider,
 	StorageLocaleConfig,
 } from './types';
+import { inject, InjectionToken } from '@angular/core';
+import { StorageLocaleProviderService } from './services/storage-locale-provider.service';
 import { NavigatorLanguageLocaleProviderService } from './services/navigator-language-locale-provider.service';
 import { AngularLocaleProviderService } from './services/angular-locale-provider.service';
 

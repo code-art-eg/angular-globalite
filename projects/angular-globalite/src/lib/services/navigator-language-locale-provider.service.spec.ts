@@ -1,6 +1,7 @@
+// noinspection ES6PreferShortImport
+import { NavigatorLanguageLocaleProviderService } from './navigator-language-locale-provider.service';
 import { TestBed } from '@angular/core/testing';
 import { DOCUMENT } from '@angular/common';
-import { NavigatorLanguageLocaleProviderService } from './navigator-language-locale-provider.service';
 
 describe('NavigatorLanguageLocaleProviderService', () => {
 	let service: NavigatorLanguageLocaleProviderService;

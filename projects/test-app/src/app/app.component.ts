@@ -1,3 +1,5 @@
+// noinspection JSUnusedLocalSymbols
+
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {
@@ -13,7 +15,7 @@ import {
 })
 export class AppComponent {
 	// eslint-disable-next-line no-unused-private-class-members
-	#themeService = inject(ThemeService);
+	readonly #themeService = inject(ThemeService);
 
 	title = 'test-app';
 }

@@ -1,3 +1,4 @@
+// noinspection ES6PreferShortImport
 import { StorageLocaleProviderService } from './storage-locale-provider.service';
 import { StorageLocaleConfig } from '../types';
 import { TestBed } from '@angular/core/testing';

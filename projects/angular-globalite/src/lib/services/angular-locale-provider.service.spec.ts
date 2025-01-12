@@ -1,5 +1,7 @@
-import { TestBed } from '@angular/core/testing';
+// noinspection ES6PreferShortImport
+
 import { AngularLocaleProviderService } from './angular-locale-provider.service';
+import { TestBed } from '@angular/core/testing';
 import { LOCALE_ID } from '@angular/core';
 
 describe('AngularLocaleProviderService', () => {
