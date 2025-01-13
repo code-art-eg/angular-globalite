@@ -2,14 +2,12 @@
 
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {
-	ThemePickerComponent,
-	ThemeService,
-} from '@code-art-eg/angular-bootstrap';
+import { ThemeService } from '@code-art-eg/angular-bootstrap';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
 	selector: 'app-root',
-	imports: [RouterOutlet, ThemePickerComponent],
+	imports: [RouterOutlet, MenuComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss',
 })

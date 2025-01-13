@@ -1100,17 +1100,17 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@code-art-eg/angular-bootstrap@^19.0.1":
-  version "19.0.1"
-  resolved "https://registry.yarnpkg.com/@code-art-eg/angular-bootstrap/-/angular-bootstrap-19.0.1.tgz#0f606642fe6591d61898feb6e45cfd9a4c111064"
-  integrity sha512-BVuZjM4eS5ta/qEhpRob4AbeYaVzxWS17lHRt7sQvORau618zeAW/cjYAMHn9cAkHLqgFyohM/XQpMCkSR/3sw==
+"@code-art-eg/angular-bootstrap@^19.1.1":
+  version "19.1.1"
+  resolved "https://registry.yarnpkg.com/@code-art-eg/angular-bootstrap/-/angular-bootstrap-19.1.1.tgz#4d6a89a20160ff8c9e701c4e3493a7029c0f6177"
+  integrity sha512-mSvSEcQ7Wa2+8x+veSW8NTg4k1i6hZzSssBaTr8vG1ibl91WrS7dbP6vCAqz8vOD+v7JFsGWJ/cR1DECgo2MFA==
   dependencies:
     tslib "^2.3.0"
 
-"@code-art-eg/globalite@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@code-art-eg/globalite/-/globalite-0.4.0.tgz#069245dc2894a1248153be0484a4cd8c6d0013f5"
-  integrity sha512-Wzp6wK7+ygvsdYkN9kdg4UQI0r4PZCcTvbSC4VbccSSJAJNYgGSU7bj1MgmtCKJcOjf5QGJTX65PeTv6aubaKQ==
+"@code-art-eg/globalite@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@code-art-eg/globalite/-/globalite-0.5.0.tgz#739f9e5812c069e696acd8dc7c1e65065c0f870f"
+  integrity sha512-AobYtmnFxXWQ6TsDQMFgEYQnMIxERFcjLZiOukIXSr75jaRnJjsbiKQIomNT2JTnfONciG6E7n1wulm4/fz/jQ==
 
 "@colors/colors@1.5.0":
   version "1.5.0"
@@ -3234,6 +3234,11 @@ boolbase@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
+
+bootstrap-icons@^1.11.3:
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.11.3.tgz#03f9cb754ec005c52f9ee616e2e84a82cab3084b"
+  integrity sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==
 
 bootstrap@^5.3.3:
   version "5.3.3"

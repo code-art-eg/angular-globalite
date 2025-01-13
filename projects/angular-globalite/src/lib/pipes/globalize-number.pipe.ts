@@ -3,6 +3,7 @@ import { BaseNumberPipe } from './base-number-pipe';
 
 @Pipe({
 	name: 'gnumber',
+	pure: false,
 })
 export class GlobalizeNumberPipe
 	extends BaseNumberPipe
