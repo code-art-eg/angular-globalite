@@ -1,6 +1,6 @@
 # angular-globalite
 
-This library provides [Angular](https://angular.dev/) pipes for formatting and parsing numbers, dates, and booleans using the [@code-art-eg/globalite](https://github.com/code-art-eg/globalite) library.
+This library provides [Angular](https://angular.dev/) pipes for formatting numbers, dates, and booleans using the [@code-art-eg/globalite](https://github.com/code-art-eg/globalite) library.
 This is a rewrite of the [@code-art-eg/angular-globalize](https://github.com/code-art-eg/angular-globalize) library that used the [Globalize](https://github.com/globalizejs/globalize) library.
 
 ## Installation
