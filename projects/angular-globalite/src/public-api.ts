@@ -15,4 +15,5 @@ export type {
 } from './lib/types';
 
 export * from './lib/pipes/globalize-number.pipe';
+export * from './lib/pipes/globalize-date.pipe';
 export * from './lib/constants';

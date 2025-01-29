@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { interval } from 'rxjs';
+import {
+	asyncScheduler,
+	concatAll,
+	from,
+	interval,
+	map,
+	scheduled,
+} from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { GlobalizeNumberPipe } from '@code-art-eg/angular-globalite';
 
@@ -10,5 +17,8 @@ import { GlobalizeNumberPipe } from '@code-art-eg/angular-globalite';
 	imports: [GlobalizeNumberPipe],
 })
 export class NumberPipeExampleComponent {
-	number$ = interval(1000).pipe(takeUntilDestroyed());
+	number$ = scheduled(
+		[from([0]), interval(1000).pipe(map(o => o + 1))],
+		asyncScheduler
+	).pipe(concatAll(), takeUntilDestroyed());
 }

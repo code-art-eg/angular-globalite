@@ -32,6 +32,7 @@ export function generatePipeTest<
 	let mockLocalizeService: LocaleService;
 
 	let pipe: BaseGlobalizePipe<TInput, TOptions>;
+	let mockCd: jasmine.SpyObj<ChangeDetectorRef>;
 
 	beforeEach(() => {
 		locale$ = new BehaviorSubject<string>('en');
@@ -43,14 +44,16 @@ export function generatePipeTest<
 			get: () => locale$.value,
 			set: (value: string) => locale$.next(value),
 		});
+
+		mockCd = jasmine.createSpyObj('ChangeDetectorRef', [
+			'markForCheck',
+			'detectChanges',
+		]);
 		TestBed.configureTestingModule({
 			providers: [
 				{
 					provide: ChangeDetectorRef,
-					useValue: jasmine.createSpyObj('ChangeDetectorRef', [
-						'markForCheck',
-						'detectChanges',
-					]),
+					useValue: mockCd,
 				},
 				{ provide: LocaleService, useValue: mockLocalizeService },
 			],
@@ -73,46 +76,66 @@ export function generatePipeTest<
 
 	it('transforms null to null', () => {
 		expect(pipe.transform(null)).toBeNull();
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms undefined to null', () => {
 		expect(pipe.transform(undefined)).toBeNull();
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms null to null with locale', () => {
 		expect(pipe.transform(null, undefined, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms undefined to null with locale', () => {
 		expect(pipe.transform(null, undefined, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms null to null with options', () => {
 		expect(pipe.transform(null, defaultOptions, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms undefined to null with options', () => {
 		expect(pipe.transform(undefined, defaultOptions, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms null to null with options', () => {
 		expect(pipe.transform(null, defaultFormat, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms undefined to null with options', () => {
 		expect(pipe.transform(undefined, defaultFormat, 'en')).toBe(null);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms a value to a string with default format and culture', () => {
 		expect(pipe.transform(defaultValue, defaultFormat, 'de')).toBe(
 			factory('de', defaultFormat)(defaultValue)
 		);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms a value to a string with default options and culture', () => {
 		expect(pipe.transform(defaultValue, defaultOptions, 'de')).toBe(
-			factory('de', defaultFormat)(defaultValue)
+			factory('de', defaultOptions)(defaultValue)
 		);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms a value to a string with default options and default culture', () => {
@@ -120,29 +143,40 @@ export function generatePipeTest<
 			factory('en', defaultOptions)(defaultValue)
 		);
 
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
+
 		mockLocalizeService.currentLocale = 'ar-EG';
 
 		expect(pipe.transform(defaultValue, defaultOptions)).toBe(
 			factory('ar-EG', defaultOptions)(defaultValue)
 		);
+		expect(mockCd.markForCheck.calls.count()).toBe(1);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms a value to a string with default format and default culture', () => {
-		expect(pipe.transform(defaultValue, defaultOptions)).toBe(
-			factory('en', defaultOptions)(defaultValue)
+		expect(pipe.transform(defaultValue, defaultFormat)).toBe(
+			factory('en', defaultFormat)(defaultValue)
 		);
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 
 		mockLocalizeService.currentLocale = 'ar-EG';
 
-		expect(pipe.transform(defaultValue, defaultOptions)).toBe(
-			factory('ar-EG', defaultOptions)(defaultValue)
+		expect(pipe.transform(defaultValue, defaultFormat)).toBe(
+			factory('ar-EG', defaultFormat)(defaultValue)
 		);
+		expect(mockCd.markForCheck.calls.count()).toBe(1);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 	});
 
 	it('transforms an Observable to a string with default format and default culture', () => {
 		const subject = new Subject<TInput>();
 
 		expect(pipe.transform(subject, defaultFormat)).toBeNull();
+		expect(mockCd.markForCheck.calls.count()).toBe(0);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 
 		subject.next(defaultValue);
 
@@ -150,11 +184,17 @@ export function generatePipeTest<
 			factory('en', defaultOptions)(defaultValue)
 		);
 
+		expect(mockCd.markForCheck.calls.count()).toBe(1);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
+
 		mockLocalizeService.currentLocale = 'ar-EG';
 
 		expect(pipe.transform(subject, defaultFormat)).toBe(
 			factory('ar-EG', defaultFormat)(defaultValue)
 		);
+
+		expect(mockCd.markForCheck.calls.count()).toBe(2);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 
 		subject.next(secondValue);
 
@@ -162,11 +202,17 @@ export function generatePipeTest<
 			factory('ar-EG', defaultFormat)(secondValue)
 		);
 
+		expect(mockCd.markForCheck.calls.count()).toBe(3);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
+
 		mockLocalizeService.currentLocale = 'en';
 
 		expect(pipe.transform(subject, defaultFormat)).toBe(
 			factory('en', defaultFormat)(secondValue)
 		);
+
+		expect(mockCd.markForCheck.calls.count()).toBe(4);
+		expect(mockCd.detectChanges.calls.count()).toBe(0);
 
 		subject.complete();
 	});

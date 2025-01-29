@@ -1,4 +1,5 @@
-const localeNameRegex = /^[A-Za-z]{2}(-[A-Za-z][a-z]{2-6})?(-[a-zA-Z]{2})?$/;
+const localeNameRegex =
+	/^\s*([A-Za-z]{2})(?:(?:[-_]([A-Za-z]{2,6}))?[-_]([a-zA-Z]{2}))?\s*$/;
 
 /**
  * Normalizes a locale name by trimming, replacing underscores with hyphens,
@@ -11,36 +12,20 @@ export function normalizeLocaleName(locale: string): string {
 	if (!locale) {
 		throw new Error('Invalid locale name');
 	}
-	locale = locale.trim().replace('_', '-');
 	if (locale.length === 0) {
 		throw new Error('Invalid locale name');
 	}
 
-	if (!localeNameRegex.test(locale)) {
+	const match = localeNameRegex.exec(locale);
+	if (!match) {
 		throw new Error('Invalid locale name');
 	}
-	const split = locale.split('-');
-	if (split.length > 3) {
-		throw new Error('Invalid locale name');
-	}
-	if (split.length === 1) {
-		return locale.toLocaleLowerCase();
-	} else {
-		let res = '';
-		for (let i = 0; i < split.length; i++) {
-			if (i > 0) {
-				res += '-';
-			}
-			if (i === 0) {
-				res += split[i].toLowerCase();
-			} else if (i === 1 && split.length > 2) {
-				res +=
-					split[1][0].toUpperCase() +
-					split[1].substring(1).toLowerCase();
-			} else {
-				res += split[i].toUpperCase();
-			}
-		}
-		return res;
-	}
+
+	const language = match[1].toLowerCase();
+	const script = match[2]
+		? match[2][0].toUpperCase() + match[2].slice(1).toLowerCase()
+		: null;
+	const region = match[3] ? match[3].toUpperCase() : '';
+
+	return script ? `${language}-${script}-${region}` : `${language}-${region}`;
 }
