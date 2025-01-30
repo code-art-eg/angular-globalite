@@ -3,6 +3,14 @@ import { BaseGlobalizePipe } from './base-globalize-pipe';
 import { MonthDisplay, WeekdayDisplay } from '../types';
 import { getDayName } from '@code-art-eg/globalite';
 
+/**
+ * Pipe to format day names using Globalite.
+ *
+ * @example
+ * {{ dayNumber | gday }} Uses the default day format and current locale.
+ * {{ dayNumber | gday:'short' }} Uses the day format 'short' and current locale.
+ * {{ dayNumber | gday:'long':'fr' }} Uses the day format 'long' and the locale 'fr'.
+ */
 @Pipe({
 	name: 'gday',
 	pure: false,

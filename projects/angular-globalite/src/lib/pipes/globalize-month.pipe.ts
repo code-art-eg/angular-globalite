@@ -3,6 +3,15 @@ import { BaseGlobalizePipe } from './base-globalize-pipe';
 import { MonthDisplay } from '../types';
 import { getMonthName } from '@code-art-eg/globalite';
 
+/**
+ * Pipe to format month names using Globalite.
+ *
+ * Month number is zero-based (like JavaScript Date object).
+ * @example
+ * {{ monthNumber | gmonth }} Uses the default month format, 'gregory' and current locale.
+ * {{ monthNumber | gmonth:'short' }} Uses the month format 'short', 'gregory' calendar and current locale.
+ * {{ monthNumber | gmonth:'long-islamic':'ar' }} Uses the month format 'long', 'islamic' calendar and the locale 'ar'.
+ */
 @Pipe({
 	name: 'gmonth',
 	pure: false,

@@ -63,10 +63,20 @@ export class LocaleValidatorService {
 		return null;
 	}
 
+	/**
+	 * Retrieves the default locale.
+	 *
+	 * @returns {string} - The default locale string.
+	 */
 	getDefaultLocale(): string {
 		return this.#supportedLocales[0];
 	}
 
+	/**
+	 * Retrieves the supported locales.
+	 *
+	 * @returns {readonly string[]} - The supported locales.
+	 */
 	getSupportedLocales(): readonly string[] {
 		return this.#supportedLocales;
 	}

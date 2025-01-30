@@ -10,9 +10,22 @@ import { of } from 'rxjs';
 	providedIn: 'root',
 })
 export class AngularLocaleProviderService implements LocaleProvider {
+	/**
+	 * @inheritdoc
+	 * @remarks This provider does not support writing.
+	 */
 	readonly canWrite = false;
+	/**
+	 * @inheritdoc
+	 * @remarks This provider does not support writing.
+	 */
 	readonly locale: string | null =
 		inject(LOCALE_ID, { optional: true }) || null;
+
+	/**
+	 * @inheritdoc
+	 * @remarks This method is not supported.
+	 */
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	setLocale(_: string): void {
 		throw new Error('Method not supported.');

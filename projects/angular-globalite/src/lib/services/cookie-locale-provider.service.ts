@@ -6,15 +6,22 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { createCookie } from '../util/create-cookie';
 import { readCookie } from '../util/read-cookie';
 
-/*
+/**
  * Service to manage locale storage in cookies.
  */
 @Injectable({
 	providedIn: 'root',
 })
 export class CookieLocaleProviderService implements LocaleProvider {
+	/**
+	 * @inheritdoc
+	 * @remarks This provider supports writing.
+	 */
 	readonly canWrite = true;
 	readonly #locale$: BehaviorSubject<string | null>;
+	/**
+	 * @inheritdoc
+	 */
 	readonly locale$: Observable<string | null>;
 
 	constructor(
@@ -26,6 +33,9 @@ export class CookieLocaleProviderService implements LocaleProvider {
 		this.locale$ = this.#locale$.asObservable();
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	setLocale(locale: string | null): void {
 		createCookie(
 			this.document,
@@ -37,6 +47,9 @@ export class CookieLocaleProviderService implements LocaleProvider {
 		this.#locale$.next(locale);
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	get locale(): string | null {
 		return readCookie(this.document, this.config.cookieName);
 	}

@@ -2,6 +2,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { BaseGlobalizePipe } from './base-globalize-pipe';
 import { getLanguageName } from '@code-art-eg/globalite';
 
+/**
+ * Pipe to format language names using Globalite.
+ *
+ * @example
+ * {{ languageCode | glanguage }} Uses the default locale.
+ * {{ languageCode | glanguage:'' }} Uses the default locale.
+ * {{ languageCode | glanguage:'':'fr' }} Uses the locale 'fr'.
+ */
 @Pipe({
 	name: 'glanguage',
 	pure: false,

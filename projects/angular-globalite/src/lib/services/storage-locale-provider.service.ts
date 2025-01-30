@@ -4,15 +4,34 @@ import { STORAGE_LOCALE_CONFIG_TOKEN } from '../constants';
 import { LocaleProvider, StorageLocaleConfig } from '../types';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+/**
+ * Service to provide the current locale from storage.
+ * Implements the LocaleProvider interface.
+ */
 @Injectable({
 	providedIn: 'root',
 })
 export class StorageLocaleProviderService implements LocaleProvider {
+	/**
+	 * The locale subject.
+	 */
 	readonly #locale$: BehaviorSubject<string | null>;
 	readonly #storageListener = this.#onStorageChange.bind(this);
+
+	/**
+	 * @inheritdoc
+	 */
 	readonly locale$: Observable<string | null>;
+	/**
+	 * @inheritdoc
+	 */
 	readonly canWrite = true;
 
+	/**
+	 * Initializes the service.
+	 * @param document - The document object.
+	 * @param config - The storage locale configuration.
+	 */
 	constructor(
 		@Inject(DOCUMENT) private readonly document: Document,
 		@Inject(STORAGE_LOCALE_CONFIG_TOKEN)
@@ -38,10 +57,16 @@ export class StorageLocaleProviderService implements LocaleProvider {
 			: this.#window.localStorage;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	get locale(): string | null {
 		return this.#locale$.value;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	setLocale(value: string | null) {
 		if (!this.#storage) {
 			return;
