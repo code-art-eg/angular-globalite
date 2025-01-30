@@ -77,3 +77,7 @@ export type MonthDisplay =
  * Type representing the display format for weekdays.
  */
 export type WeekdayDisplay = 'narrow' | 'short' | 'long';
+
+export type ControlValue<T> = T | null | string;
+export type OnChangeHandler<T> = (val: ControlValue<T>) => void;
+export type CoercedValue<T> = T | null | undefined;

@@ -10,7 +10,7 @@ export default tseslint.config(
 				'error',
 				{
 					type: 'attribute',
-					prefix: 'lib',
+					prefix: 'glb',
 					style: 'camelCase',
 				},
 			],
@@ -18,7 +18,7 @@ export default tseslint.config(
 				'error',
 				{
 					type: 'element',
-					prefix: 'lib',
+					prefix: 'glb',
 					style: 'kebab-case',
 				},
 			],
