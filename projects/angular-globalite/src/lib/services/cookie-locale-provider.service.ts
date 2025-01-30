@@ -15,7 +15,6 @@ import { readCookie } from '../util/read-cookie';
 export class CookieLocaleProviderService implements LocaleProvider {
 	/**
 	 * @inheritdoc
-	 * @remarks This provider supports writing.
 	 */
 	readonly canWrite = true;
 	readonly #locale$: BehaviorSubject<string | null>;

@@ -7,6 +7,7 @@ export * from './lib/services/cookie-locale-provider.service';
 export * from './lib/services/locale.service';
 export * from './lib/services/navigator-language-locale-provider.service';
 export * from './lib/services/storage-locale-provider.service';
+export * from './lib/services/locale-validator.service';
 
 export type {
 	LocaleProvider,
