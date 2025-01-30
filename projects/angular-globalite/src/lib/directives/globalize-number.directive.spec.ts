@@ -133,7 +133,7 @@ describe('GlobalizeNumberDirective', () => {
 		expect(input.disabled).toBe(false);
 	});
 
-	it('raises touch events', async () => {
+	it('raises touch events', () => {
 		fixture.detectChanges();
 		expect(component.formControl.touched).toBe(false);
 		input.dispatchEvent(new Event('blur'));

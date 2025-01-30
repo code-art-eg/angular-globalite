@@ -13,6 +13,8 @@ import { BaseConverterDirective } from './base-converter-directive';
  * it will be formatted using the current locale and the specified format
  * and written to the input element.
  *
+ * An empty string or a string with only whitespace will be converted to `null`.
+ *
  * @example
  * <input type="text" glbToInteger [formControl]="formControl" />
  *
