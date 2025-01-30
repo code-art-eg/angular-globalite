@@ -27,5 +27,17 @@ export function normalizeLocaleName(locale: string): string {
 		: null;
 	const region = match[3] ? match[3].toUpperCase() : '';
 
-	return script ? `${language}-${script}-${region}` : `${language}-${region}`;
+	if (!script && !region) {
+		return language;
+	}
+
+	if (!script) {
+		return `${language}-${region}`;
+	}
+
+	if (!region) {
+		throw new Error('Invalid locale name: ' + locale);
+	}
+
+	return `${language}-${script}-${region}`;
 }

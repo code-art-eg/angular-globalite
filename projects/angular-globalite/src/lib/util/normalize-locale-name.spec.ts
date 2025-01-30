@@ -1,6 +1,6 @@
 import { normalizeLocaleName } from './normalize-locale-name';
 
-describe('normalizeName', () => {
+describe('normalizeLocaleName', () => {
 	it('should throw an error for an empty input', () => {
 		expect(() => normalizeLocaleName('')).toThrowError(
 			'Invalid locale name'
@@ -59,5 +59,11 @@ describe('normalizeName', () => {
 
 	it('should handle multiple parts correctly', () => {
 		expect(normalizeLocaleName('zh-hans-cn')).toBe('zh-Hans-CN');
+	});
+
+	it('should throw when script is specified but not region', () => {
+		expect(() => normalizeLocaleName('en-Extra')).toThrowError(
+			'Invalid locale name'
+		);
 	});
 });
