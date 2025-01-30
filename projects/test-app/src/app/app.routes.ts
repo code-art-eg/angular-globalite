@@ -7,6 +7,7 @@ import { DayPipeExampleComponent } from './day-pipe-example/day-pipe-example.com
 import { LanguagePipeExampleComponent } from './language-pipe-example/language-pipe-example.component';
 import { CountryPipeExampleComponent } from './country-pipe-example/country-pipe-example.component';
 import { DurationPipeExampleComponent } from './duration-pipe-example/duration-pipe-example.component';
+import { BooleanPipeExampleComponent } from './boolean-pipe-example/boolean-pipe-example.component';
 
 export const routes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -45,5 +46,10 @@ export const routes: Routes = [
 		path: 'gduration',
 		component: DurationPipeExampleComponent,
 		title: 'gduration',
+	},
+	{
+		path: 'gbool',
+		component: BooleanPipeExampleComponent,
+		title: 'gbool',
 	},
 ];

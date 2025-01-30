@@ -24,4 +24,5 @@ export * from './lib/pipes/globalize-month.pipe';
 export * from './lib/pipes/globalize-day.pipe';
 export * from './lib/pipes/globalize-language.pipe';
 export * from './lib/pipes/globalize-country.pipe';
+export * from './lib/pipes/globalize-boolean.pipe';
 export * from './lib/constants';
