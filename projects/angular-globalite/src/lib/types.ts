@@ -17,3 +17,13 @@ export interface CookieLocaleConfig {
 	readonly cookieExpiresMinutes: number;
 	readonly cookiePath: string;
 }
+
+export type MonthDisplay =
+	| 'narrow'
+	| 'short'
+	| 'long'
+	| 'narrow-islamic'
+	| 'short-islamic'
+	| 'long-islamic';
+
+export type WeekdayDisplay = 'narrow' | 'short' | 'long';

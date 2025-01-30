@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PickerComponent, PickerOption } from '@code-art-eg/angular-bootstrap';
 import { LocaleValidatorService } from '../../../../angular-globalite/src/lib/services/locale-validator.service';
 import { LocaleService } from '@code-art-eg/angular-globalite';
-import { languageName } from '@code-art-eg/globalite';
+import { getLanguageName } from '@code-art-eg/globalite';
 
 @Component({
 	selector: 'app-language-picker',
@@ -17,7 +17,7 @@ export class LanguagePickerComponent {
 	constructor() {
 		this.options = this.#languages.map(locale => ({
 			value: locale,
-			label: languageName(locale, locale),
+			label: getLanguageName(locale, locale),
 		}));
 	}
 }

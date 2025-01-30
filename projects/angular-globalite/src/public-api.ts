@@ -12,8 +12,15 @@ export type {
 	LocaleProvider,
 	CookieLocaleConfig,
 	StorageLocaleConfig,
+	MonthDisplay,
+	WeekdayDisplay,
 } from './lib/types';
 
 export * from './lib/pipes/globalize-number.pipe';
 export * from './lib/pipes/globalize-date.pipe';
+export * from './lib/pipes/globalize-duration.pipe';
+export * from './lib/pipes/globalize-month.pipe';
+export * from './lib/pipes/globalize-day.pipe';
+export * from './lib/pipes/globalize-language.pipe';
+export * from './lib/pipes/globalize-country.pipe';
 export * from './lib/constants';

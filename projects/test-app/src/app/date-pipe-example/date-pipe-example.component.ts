@@ -8,7 +8,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 	selector: 'app-date-pipe-example',
 	imports: [GlobalizeDatePipe],
 	templateUrl: './date-pipe-example.component.html',
-	styleUrl: './date-pipe-example.component.scss',
 })
 export class DatePipeExampleComponent {
 	now$ = scheduled([from([0]), interval(1000)], asyncScheduler).pipe(
