@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, combineLatest } from 'rxjs';
-import { LocaleService } from '@code-art-eg/angular-globalite';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CoercedValue, ControlValue, OnChangeHandler } from '../types';
+import { LocaleService } from '../services/locale.service';
 
 /**
  * Abstract base class for directives that convert and format values.

@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { LocaleService } from './locale.service';
-import { LOCALE_PROVIDERS_TOKEN } from '../constants';
 import { LocaleProvider } from '../types';
 import { LocaleValidatorService } from './locale-validator.service';
 import { BehaviorSubject, of } from 'rxjs';
+import { LOCALE_PROVIDERS_TOKEN } from '../provider-tokens';
 
 describe('LocaleService', () => {
 	let supportedLocales: string[];

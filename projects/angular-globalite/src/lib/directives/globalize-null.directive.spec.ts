@@ -2,13 +2,13 @@ import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
-	LOCALE_PROVIDERS_TOKEN,
 	LocaleProvider,
 	SUPPORTED_LOCALES_TOKEN,
 } from '@code-art-eg/angular-globalite';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GlobalizeNullDirective } from './globalize-null.directive';
+import { LOCALE_PROVIDERS_TOKEN } from '../provider-tokens';
 
 @Component({
 	imports: [ReactiveFormsModule, GlobalizeNullDirective],

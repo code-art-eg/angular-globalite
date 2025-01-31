@@ -2,7 +2,6 @@ import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
-	LOCALE_PROVIDERS_TOKEN,
 	LocaleProvider,
 	LocaleService,
 	SUPPORTED_LOCALES_TOKEN,
@@ -10,6 +9,7 @@ import {
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GlobalizeIntegerDirective } from './globalize-integer.directive';
+import { LOCALE_PROVIDERS_TOKEN } from '../provider-tokens';
 
 @Component({
 	imports: [ReactiveFormsModule, GlobalizeIntegerDirective],

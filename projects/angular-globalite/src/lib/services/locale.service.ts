@@ -1,10 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
-import { LOCALE_PROVIDERS_TOKEN } from '../constants';
 import { LocaleProvider } from '../types';
 import { LocaleValidatorService } from './locale-validator.service';
 import { combineLatest, map, Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { normalizeLocaleName } from '../util/normalize-locale-name';
+import { LOCALE_PROVIDERS_TOKEN } from '../provider-tokens';
 
 /**
  * Service to manage the current locale for the application.
