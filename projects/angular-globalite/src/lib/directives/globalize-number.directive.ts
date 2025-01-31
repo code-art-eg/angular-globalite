@@ -32,9 +32,18 @@ import { numberFormatter, numberParser } from '@code-art-eg/globalite';
 	selector: '[glbToNumber]',
 })
 export class GlobalizeNumberDirective extends BaseConverterDirective<number> {
+	/**
+	 * The format to use when formatting the number.
+	 * If not specified, the default format 'n' will be used.
+	 * See the Globalite documentation for more information about number formats.
+	 */
 	@Input('glbToNumber') public format = 'n';
 
 	protected coerceValue(v: ControlValue<number>): CoercedValue<number> {
+		let fmt = this.format;
+		if (fmt === '') {
+			fmt = 'n';
+		}
 		if (v === null) {
 			return null;
 		} else if (typeof v === 'string' && isWhitespaceOrEmpty(v)) {
@@ -44,10 +53,7 @@ export class GlobalizeNumberDirective extends BaseConverterDirective<number> {
 		if (typeof v === 'number') {
 			val = v;
 		} else {
-			const np = numberParser(
-				this.localeService.currentLocale,
-				this.format
-			);
+			const np = numberParser(this.localeService.currentLocale, fmt);
 			val = np(v);
 		}
 		const valid = typeof val === 'number' && !isNaN(val) && isFinite(val);
@@ -59,13 +65,14 @@ export class GlobalizeNumberDirective extends BaseConverterDirective<number> {
 	}
 
 	protected override formatValue(v: number): string {
+		let fmt = this.format;
+		if (fmt === '') {
+			fmt = 'n';
+		}
 		if (isNaN(v) || !isFinite(v)) {
 			return '';
 		}
-		const nf = numberFormatter(
-			this.localeService.currentLocale,
-			this.format
-		);
+		const nf = numberFormatter(this.localeService.currentLocale, fmt);
 		return nf(v);
 	}
 }

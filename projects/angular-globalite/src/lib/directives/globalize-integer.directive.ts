@@ -18,8 +18,6 @@ import { BaseConverterDirective } from './base-converter-directive';
  * @example
  * <input type="text" glbToInteger [formControl]="formControl" />
  *
- * @example
- *
  */
 @Directive({
 	providers: [

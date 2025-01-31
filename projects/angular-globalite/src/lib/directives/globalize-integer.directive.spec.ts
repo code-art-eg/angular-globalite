@@ -38,20 +38,20 @@ class MockLocaleProvider implements LocaleProvider {
 }
 
 describe('GlobalizeIntegerDirective', () => {
-	let fixture: ComponentFixture<TestComponent>;
 	let component: TestComponent;
 	let localeService: LocaleService;
 	let input: HTMLInputElement;
+	let fixture: ComponentFixture<TestComponent>;
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
 				{
-					provide: SUPPORTED_LOCALES_TOKEN,
-					useValue: ['en-GB', 'ar-EG', 'de'],
-				},
-				{
 					provide: LOCALE_PROVIDERS_TOKEN,
 					useValue: [new MockLocaleProvider()],
+				},
+				{
+					provide: SUPPORTED_LOCALES_TOKEN,
+					useValue: ['en-GB', 'ar-EG', 'de'],
 				},
 			],
 		});
@@ -63,11 +63,7 @@ describe('GlobalizeIntegerDirective', () => {
 		localeService = TestBed.inject(LocaleService);
 	});
 
-	it('should create an instance', () => {
-		expect(component).toBeTruthy();
-	});
-
-	it('update reflect the value of the control on the input element', () => {
+	it('update reflect the integer value of the control on the input element', () => {
 		expect(component.formControl.value).toBe(1);
 		fixture.detectChanges();
 		expect(input.value).toBe('1');
@@ -80,7 +76,7 @@ describe('GlobalizeIntegerDirective', () => {
 		expect(component.formControl.value).toBeNull();
 	});
 
-	it('update the model value to value when input a number is entered', () => {
+	it('update the model value to value when input an integer is entered', () => {
 		fixture.detectChanges();
 		input.value = '1234567';
 		input.dispatchEvent(new Event('input'));
