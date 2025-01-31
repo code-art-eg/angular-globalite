@@ -15,6 +15,9 @@ export type {
 	StorageLocaleConfig,
 	MonthDisplay,
 	WeekdayDisplay,
+	DateOnly,
+	ControlValue,
+	CoercedValue,
 } from './lib/types';
 
 export * from './lib/pipes/globalize-number.pipe';

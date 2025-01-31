@@ -33,6 +33,9 @@ import { isDateOnly } from '../util/is-date-only';
 	selector: '[glbToDateOnly]',
 })
 export class GlobalizeDateOnlyDirective extends BaseConverterDirective<DateOnly> {
+	/**
+	 * @inheritDoc
+	 */
 	protected coerceValue(v: ControlValue<DateOnly>): CoercedValue<DateOnly> {
 		if (v === null) {
 			return null;
