@@ -163,8 +163,8 @@ export abstract class BaseConverterDirective<T>
 				} else {
 					coercedValue = this.coerceValue(this.#controlValue);
 					if (
-						coercedValue === null ||
-						!this.#valuesAreEqual(coercedValue as T, val)
+						coercedValue === undefined ||
+						!this.#valuesAreEqual(coercedValue, val)
 					) {
 						this.#controlValue = this.formatValue(val);
 						this.#controlValueAccessor.writeValue(
