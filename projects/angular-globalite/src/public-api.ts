@@ -25,4 +25,13 @@ export * from './lib/pipes/globalize-day.pipe';
 export * from './lib/pipes/globalize-language.pipe';
 export * from './lib/pipes/globalize-country.pipe';
 export * from './lib/pipes/globalize-boolean.pipe';
+
+// export directives
+
+export * from './lib/directives/globalize-date-only.directive';
+export * from './lib/directives/globalize-date-time.directive';
+export * from './lib/directives/globalize-number.directive';
+export * from './lib/directives/globalize-integer.directive';
+export * from './lib/directives/globalize-null.directive';
+
 export * from './lib/constants';
