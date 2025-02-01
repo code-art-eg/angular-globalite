@@ -11,7 +11,7 @@ describe('ip4SubnetMask Validator', () => {
 	it('should return an error object if the control value is not a valid subnet mask', () => {
 		const control = new FormControl('255.255.255.1');
 		const result = ip4SubnetMask(control);
-		expect(result).toEqual({ ip4SubnetMask: true });
+		expect(result).toEqual({ subnet: true });
 	});
 
 	it('should return null if the control value is null', () => {
@@ -35,7 +35,7 @@ describe('ip4SubnetMask Validator', () => {
 	it('should return an error object if the control value is a malformed subnet mask', () => {
 		const control = new FormControl('255.255.255');
 		const result = ip4SubnetMask(control);
-		expect(result).toEqual({ ip4SubnetMask: true });
+		expect(result).toEqual({ subnet: true });
 	});
 
 	it('should return an error object if the control value contains letters', () => {

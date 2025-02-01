@@ -47,7 +47,7 @@ export function ip4SubnetMask(c: AbstractControl): ValidationErrors | null {
 		return null;
 	}
 	if (!validSubnetMasks.includes(c.value)) {
-		return { ip4SubnetMask: true };
+		return { subnet: true };
 	}
 	return null;
 }
