@@ -39,4 +39,6 @@ export * from './lib/directives/globalize-null.directive';
 
 export * from './lib/directives/globalize-direction.directive';
 
+export * from './lib/validators';
+
 export * from './lib/constants';
