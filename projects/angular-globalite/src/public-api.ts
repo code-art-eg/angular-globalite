@@ -37,4 +37,6 @@ export * from './lib/directives/globalize-number.directive';
 export * from './lib/directives/globalize-integer.directive';
 export * from './lib/directives/globalize-null.directive';
 
+export * from './lib/directives/globalize-direction.directive';
+
 export * from './lib/constants';
