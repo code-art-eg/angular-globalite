@@ -2,14 +2,12 @@ import { GlobalizeNumberDirective } from './globalize-number.directive';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-	LocaleProvider,
-	LocaleService,
-	SUPPORTED_LOCALES_TOKEN,
-} from '@code-art-eg/angular-globalite';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LOCALE_PROVIDERS_TOKEN } from '../provider-tokens';
+import { LocaleProvider } from '../types';
+import { LocaleService } from '../services/locale.service';
+import { SUPPORTED_LOCALES_TOKEN } from '../constants';
 
 @Component({
 	imports: [ReactiveFormsModule, GlobalizeNumberDirective],
