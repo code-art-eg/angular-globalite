@@ -61,3 +61,7 @@ export const SUPPORTED_LOCALES_TOKEN = new InjectionToken<string[]>(
 	'supported-locales',
 	{ providedIn: 'root', factory: () => [DEFAULT_LOCALE] }
 );
+
+export const FORM_VALIDATION_CONTEXT = 'formValidation';
+export const FORM_FIELD_CONTEXT = 'formField';
+export const NO_CONTEXT = 'NoContext';
