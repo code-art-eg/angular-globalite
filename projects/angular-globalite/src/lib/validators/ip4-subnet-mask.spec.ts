@@ -41,6 +41,6 @@ describe('ip4SubnetMask Validator', () => {
 	it('should return an error object if the control value contains letters', () => {
 		const control = new FormControl('255.255.255.a');
 		const result = ip4SubnetMask(control);
-		expect(result).toEqual({ ip4SubnetMask: true });
+		expect(result).toEqual({ subnet: true });
 	});
 });
